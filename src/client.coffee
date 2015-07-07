@@ -24,6 +24,7 @@ module.exports = class HostedGraphite
       key = key.join '.'
 
     key = @options.prefix + '.' + key
+    key = key.replace.replace(/[^a-z0-9\._]/ig, '_');
 
     message = new Buffer "#{key} #{value}\n"
     
