@@ -13,6 +13,7 @@ module.exports = class HostedGraphite
 
     @options.server ?= 'carbon.hostedgraphite.com'
     @options.port ?= 2003
+    @options.sanitize ?= (key) -> key.replace /[^a-z0-9\._]/ig, '_'
 
     debug('Init', @options)
 
@@ -23,8 +24,7 @@ module.exports = class HostedGraphite
     if Array.isArray key
       key = key.join '.'
 
-    key = @options.prefix + '.' + key
-    key = key.replace.replace(/[^a-z0-9\._]/ig, '_');
+    key = @options.sanitize @options.prefix + '.' + key
 
     message = new Buffer "#{key} #{value}\n"
     
