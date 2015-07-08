@@ -24,7 +24,7 @@ module.exports = class HostedGraphite
     if Array.isArray key
       key = key.join '.'
 
-    key = @options.sanitize @options.prefix + '.' + key
+    key = @options.prefix + '.' + @options.sanitize key
 
     message = new Buffer "#{key} #{value}\n"
     
