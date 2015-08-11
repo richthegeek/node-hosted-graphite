@@ -13,7 +13,7 @@ module.exports = class HostedGraphite
 
     @options.server ?= 'carbon.hostedgraphite.com'
     @options.port ?= 2003
-    @options.sanitize ?= (key) -> key.replace /[^a-z0-9\._]/ig, '_'
+    @options.sanitize ?= (key) -> key.replace /[^a-z0-9\._-]/ig, '_'
 
     debug('Init', @options)
 

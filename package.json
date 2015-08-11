@@ -1,7 +1,7 @@
 {
   "name": "hosted-graphite",
   "description": "Library for sending data to Hosted Graphite",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": "lib/client.js",
   "dependencies": {
     "debug": "^2.2.0"
